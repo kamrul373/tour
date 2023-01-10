@@ -1,0 +1,22 @@
+.banner {
+	position: relative;
+	z-index: 9;
+	background-position: center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.banner::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 100%;
+	width: 100%;
+	background: rgb(36, 52, 35);
+	background: linear-gradient(170deg, rgb(47, 48, 47) 0%, rgb(24, 32, 23) 100%);
+	opacity: 0.5;
+	clear: both;
+	z-index: -1;
+}
