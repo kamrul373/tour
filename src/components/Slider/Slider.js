@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./slider.css";
 // import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
 import slide1 from "../../assets/slide1.jpg"
 import slide2 from "../../assets/slide2.jpg"
 import slide3 from "../../assets/slide3.jpg"
@@ -24,14 +24,20 @@ const Slider = () => {
 				pagination={ true }
 				mousewheel={ true }
 				keyboard={ true }
-				modules={ [Navigation, Pagination, Mousewheel, Keyboard] }
+				autoplay={ {
+					delay: 2000,
+					disableOnInteraction: false,
+				} }
+				modules={ [Navigation, Pagination, Mousewheel, Keyboard, Autoplay] }
 				className="mySwiper"
 			>
 				<SwiperSlide>
 					<div className="min-h-[200px] text-white px-3" style={ { backgroundImage: `url(${ slide1 })` } }>
-						<div className="flex flex-col justify-end">
-							<p className="">Mirissa</p>
-							<p className="text-[11px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, expedita?</p>
+						<div className="flex flex-col justify-end h-[200px]">
+							<div className="text-left py-3">
+								<p className="font-bold">Mirissa</p>
+								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							</div>
 						</div>
 					</div>
 				</SwiperSlide>
@@ -43,6 +49,12 @@ const Slider = () => {
 				</SwiperSlide>
 				<SwiperSlide>
 					<img src={ slide4 } alt="slide"></img>
+				</SwiperSlide>
+				<SwiperSlide>
+					<img src={ slide5 } alt="slide"></img>
+				</SwiperSlide>
+				<SwiperSlide>
+					<img src={ slide5 } alt="slide"></img>
 				</SwiperSlide>
 				<SwiperSlide>
 					<img src={ slide5 } alt="slide"></img>
