@@ -1,0 +1,73 @@
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import Loading from '../components/Loading/Loading';
+
+const AddExploreSlide = () => {
+	const [loading, setLoading] = useState( false )
+	const handleAddSlide = e => {
+		e.preventDefault()
+		setLoading( true )
+		const title = e.target.title.value;
+		const description = e.target.description.value;
+		const slide = e.target.exslide.files[0];
+		const formData = new FormData();
+
+		// uploading bg image 
+		formData.append( "image", slide );
+
+		const url = `https://api.imgbb.com/1/upload?key=62c7b0100f82b41ad73c0c259289a499`
+		fetch( url, {
+			method: "POST",
+			body: formData
+		} ).then( res => res.json() )
+			.then( data => {
+				console.log( data )
+				const slide = {
+					title, description, url: data.data.url
+				}
+				fetch( `${ process.env.REACT_APP_HOST }/explore`, {
+					method: "POST",
+					headers: {
+						"content-type": "application/json"
+					},
+					body: JSON.stringify( slide )
+				} ).then( res => res.json() )
+					.then( data => {
+						setLoading( false )
+						toast.success( "Succesfully slide added" );
+						e.target.reset()
+					} ).catch( error => console.log( error ) )
+			} ).catch( erorr => console.log( erorr ) )
+
+	}
+	if ( loading ) {
+		return <Loading></Loading>
+	}
+	return (
+		<div>
+			<h2 className='text-2xl font-semibold'>Add Explore Slide</h2>
+			<div>
+				<form className='lg:pr-20' onSubmit={ handleAddSlide }>
+					<div className="form-control mt-4">
+						<label htmlFor="title">Slide Title</label>
+						<input type="text" placeholder="Title" className="input input-bordered input-primary mt-4 w-full " id="title" name="title" required />
+					</div>
+					<div className="form-control mt-4">
+						<label htmlFor="description">Slide Description</label>
+
+						<textarea className="textarea textarea-primary mt-4 w-full" placeholder="Description" id="description" name="description" rows="4" required></textarea>
+					</div>
+					<div className="form-control mt-4">
+						<label htmlFor="exslide">Slide</label>
+						<input type="file" className="file-input  w-full max-w-xs mt-4" id='exslide' name='exslide' required />
+					</div>
+					<div className="form-control mt-4">
+						<input type="submit" value="Add Banner" className='btn bg-green-700 text-white hover:bg-green-900 duration-500 btn-wide' />
+					</div>
+				</form>
+			</div>
+		</div>
+	);
+};
+
+export default AddExploreSlide;

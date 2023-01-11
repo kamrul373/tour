@@ -31,7 +31,7 @@ const Subscriber = () => {
 					</thead>
 					<tbody>
 						{
-							subscribers.map( ( subscriber, idx ) => <tr>
+							subscribers.map( ( subscriber, idx ) => <tr key={ idx }>
 								<th>{ idx + 1 }</th>
 								<td>{ subscriber?.name }</td>
 								<td>{ subscriber?.phone }</td>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,8 +12,23 @@ import slide1 from "../../assets/explore4.jpg"
 import slide2 from "../../assets/explore3.jpg"
 import slide3 from "../../assets/explore2.jpg"
 import slide4 from "../../assets/explore6.jpg"
+import Loading from "../Loading/Loading";
 
 const ExploreSlider = () => {
+	const [loading, setLoading] = useState( false )
+	const [sliders, setSliders] = useState( [] );
+	useEffect( () => {
+		setLoading( true )
+		fetch( `${ process.env.REACT_APP_HOST }/explore` )
+			.then( res => res.json() )
+			.then( data => {
+				setSliders( data )
+				setLoading( false )
+			} )
+	}, [] )
+	if ( loading ) {
+		return <Loading></Loading>
+	}
 	return (
 		<>
 			<Swiper
@@ -30,46 +45,19 @@ const ExploreSlider = () => {
 				modules={ [Pagination, Navigation, Autoplay] }
 				className="mySwiper"
 			>
-				<SwiperSlide>
-					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide1 })` } }>
-						<div className="flex flex-col justify-end h-[350px] ">
-							<div className="text-left py-3">
-								<p className="font-bold lg:text-xl">Mirissa</p>
-								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+				{
+					sliders.map( slide => <SwiperSlide key={ slide?._id }>
+						<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide?.url })` } }>
+							<div className="flex flex-col justify-end h-[350px] ">
+								<div className="text-left py-5">
+									<p className="font-bold lg:text-xl">{ slide?.title }</p>
+									<p className="text-[10px] text-start"> { slide?.description } </p>
+								</div>
 							</div>
 						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide2 })` } }>
-						<div className="flex flex-col justify-end h-[350px] ">
-							<div className="text-left py-3">
-								<p className="font-bold lg:text-xl">Mirissa</p>
-								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide3 })` } }>
-						<div className="flex flex-col justify-end h-[350px] ">
-							<div className="text-left py-3">
-								<p className="font-bold lg:text-xl">Mirissa</p>
-								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide4 })` } }>
-						<div className="flex flex-col justify-end h-[350px] ">
-							<div className="text-left py-3">
-								<p className="font-bold lg:text-xl">Mirissa</p>
-								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
+					</SwiperSlide> )
+				}
+
 
 			</Swiper>
 		</>

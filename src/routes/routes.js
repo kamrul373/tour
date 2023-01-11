@@ -8,6 +8,9 @@ import Login from "../pages/Login";
 import Banner from "../pages/Banner";
 import SocialMedia from "../pages/SocialMedia";
 import Subscriber from "../pages/Subscriber";
+import AddExploreSlide from "../pages/AddExploreSlide";
+import ExploreSlides from "../pages/ExploreSlides";
+import ExploreContent from "../pages/ExploreContent";
 
 export const router = createBrowserRouter( [
 	{
@@ -43,6 +46,18 @@ export const router = createBrowserRouter( [
 			{
 				path: "/dashboard/subscribers",
 				element: <Subscriber></Subscriber>
+			},
+			{
+				path: "/dashboard/addexploreslide",
+				element: <AddExploreSlide></AddExploreSlide>
+			},
+			{
+				path: "/dashboard/exploreslides",
+				element: <ExploreSlides></ExploreSlides>
+			},
+			{
+				path: "/dashboard/updateexplorecntent",
+				element: <ExploreContent></ExploreContent>
 			}
 		]
 	}

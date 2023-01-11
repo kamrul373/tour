@@ -24,9 +24,12 @@ const DashboardLayout = () => {
 					<ul className="menu p-4 w-80 ">
 						<li><Link to="/" className='text-2xl'>Agumentik</Link></li>
 						{/* <!-- Sidebar content here --> */ }
-						<li><Link to="/dashboard/banner">Add Banner</Link></li>
-						<li><Link to="/dashboard/social">Social Media</Link></li>
-						<li><Link to="/dashboard/subscribers">Subscribers</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/banner">Add Banner</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/social">Social Media</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/subscribers">Subscribers</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/addexploreslide">Add Explore Slide</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/updateexplorecntent">Explore Content</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/exploreslides">Exploreslides</Link></li>
 					</ul>
 
 				</div>
