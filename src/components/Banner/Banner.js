@@ -9,7 +9,7 @@ const Banner = () => {
 		<div className='banner overflow-hidden' style={ { backgroundImage: `url(${ bg })` } }>
 			<div className="grid lg:grid-cols-2 grid-cols-1 gap-4 justify-center items-center lg:px-20 px-8 lg:min-h-screen">
 				<div className="banner-left ">
-					<div className="content-area ">
+					<div className="content-area">
 						<h2 className='lg:text-7xl text-3xl text-white font-bold'>
 							{ banner?.title }
 						</h2>

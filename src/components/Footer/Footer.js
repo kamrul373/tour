@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebookF, FaTwitter, FaPinterestP, FaFoursquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { HomeContentContext } from '../../App';
 
 const Footer = () => {
+	const { social } = useContext( HomeContentContext )
 	return (
 		<div>
 			<footer className="footer footer-center p-10 bg-[#0A1806]  text-white">
@@ -11,18 +13,31 @@ const Footer = () => {
 				</div>
 				<div>
 					<div className="grid grid-flow-col gap-4">
-						<Link to="/">
-							<FaFacebookF className='text-xl'></FaFacebookF>
-						</Link>
-						<Link to="/">
-							<FaPinterestP className='text-xl'></FaPinterestP>
-						</Link>
-						<Link to="/">
-							<FaFoursquare className='text-xl'></FaFoursquare>
-						</Link>
-						<Link to="/">
-							<FaTwitter className='text-xl'></FaTwitter>
-						</Link>
+						{
+							social?.facebook &&
+							<Link to={ social.facebook }>
+								<FaFacebookF className='text-xl'></FaFacebookF>
+							</Link>
+						}
+
+						{
+							social?.pinterest &&
+							<Link to={ social.pinterest }>
+								<FaPinterestP className='text-xl'></FaPinterestP>
+							</Link>
+						}
+						{
+							social?.foursquare && <Link to={ social.foursquare }>
+								<FaFoursquare className='text-xl'></FaFoursquare>
+							</Link>
+						}
+
+						{
+							social?.twitter &&
+							<Link to={ social.twitter }>
+								<FaTwitter className='text-xl'></FaTwitter>
+							</Link>
+						}
 					</div>
 					<div>
 						<p className='py-2'>Copyright © 2023 - All right reserved</p>

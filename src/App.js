@@ -10,9 +10,11 @@ export const HomeContentContext = createContext();
 
 function App () {
 	const [banner, setBanner] = useState( [] );
+	const [social, setSocial] = useState( [] );
 	const [loading, setLoading] = useState( true )
 	// getting active banner
 	useEffect( () => {
+		setLoading( true )
 		fetch( `${ process.env.REACT_APP_HOST }/banner` )
 			.then( res => res.json() )
 			.then( data => {
@@ -20,8 +22,18 @@ function App () {
 				setLoading( false )
 			} )
 	}, [] )
+	useEffect( () => {
+		setLoading( true )
+		fetch( `${ process.env.REACT_APP_HOST }/social` )
+			.then( res => res.json() )
+			.then( data => {
+				setSocial( data )
+				setLoading( false )
+			} )
+	}, [] )
 	const content = {
-		banner
+		banner,
+		social
 	}
 	if ( loading ) {
 		return <Loading></Loading>

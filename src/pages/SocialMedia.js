@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../components/Loading/Loading';
+import { HomeContentContext } from '../App';
 
 const SocialMedia = () => {
-	const [social, setSocial] = useState( [] );
-	const [loading, setLoading] = useState( true )
+	const { social } = useContext( HomeContentContext )
+	const [loading, setLoading] = useState( false )
 	// getting current social media
-	useEffect( () => {
-		fetch( `${ process.env.REACT_APP_HOST }/social` )
-			.then( res => res.json() )
-			.then( data => {
-				setSocial( data )
-				setLoading( false )
-			} )
-	}, [] )
+
 	// event handler of social media update event
 	const handleSocialMedia = ( e ) => {
 		e.preventDefault();
+		setLoading( true )
 		const form = e.target;
 		const facebook = form.facebook.value;
 		const pinterest = form.pinterest.value;
