@@ -9,12 +9,9 @@ const Nav = () => {
 			<li><Link to="/">Discover</Link></li>
 			<li><Link to="/">History</Link></li>
 			<li><Link to="/">Events</Link></li>
-			<li><Link to="/">Blogs</Link></li>
-			<li><Link to="/">Interests</Link></li>
-			<li>
-				<span>Search <FaSearch className='text-xl'></FaSearch></span>
+			<li><Link to="/login" className='btn bg-accent text-white bg-opacity-75 hover:bg-opacity-100 hover:bg-accent duration-500 border-none rounded-lg font-bold'>Login</Link></li>
 
-			</li>
+
 		</ul>
 	);
 };
