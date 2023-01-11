@@ -8,8 +8,6 @@ import Loading from './components/Loading/Loading';
 
 export const HomeContentContext = createContext();
 
-
-
 function App () {
 	const [banner, setBanner] = useState( [] );
 	const [loading, setLoading] = useState( true )

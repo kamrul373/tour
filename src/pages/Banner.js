@@ -23,7 +23,6 @@ const Banner = () => {
 		} ).then( res => res.json() )
 			.then( data => setBgimage( data.data.url ) )
 
-
 		// storing slider image url 
 		const files = e.target.slider.files
 

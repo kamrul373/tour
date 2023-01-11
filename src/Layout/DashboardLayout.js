@@ -25,7 +25,7 @@ const DashboardLayout = () => {
 						<li><Link to="/" className='text-2xl'>Agumentik</Link></li>
 						{/* <!-- Sidebar content here --> */ }
 						<li><Link to="/dashboard/banner">Add Banner</Link></li>
-
+						<li><Link to="/dashboard/social">Social Media</Link></li>
 					</ul>
 
 				</div>
