@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../components/Loading/Loading';
+import { useNavigate } from 'react-router-dom';
 
 const AddExploreSlide = () => {
 	const [loading, setLoading] = useState( false )
+	const navigate = useNavigate()
 	const handleAddSlide = e => {
 		e.preventDefault()
 		setLoading( true )
@@ -34,6 +36,7 @@ const AddExploreSlide = () => {
 				} ).then( res => res.json() )
 					.then( data => {
 						setLoading( false )
+						navigate( "/dashboard/exploreslides" )
 						toast.success( "Succesfully slide added" );
 						e.target.reset()
 					} ).catch( error => console.log( error ) )
@@ -62,7 +65,7 @@ const AddExploreSlide = () => {
 						<input type="file" className="file-input  w-full max-w-xs mt-4" id='exslide' name='exslide' required />
 					</div>
 					<div className="form-control mt-4">
-						<input type="submit" value="Add Banner" className='btn bg-green-700 text-white hover:bg-green-900 duration-500 btn-wide' />
+						<input type="submit" value="Add Slide" className='btn bg-green-700 text-white hover:bg-green-900 duration-500 btn-wide' />
 					</div>
 				</form>
 			</div>

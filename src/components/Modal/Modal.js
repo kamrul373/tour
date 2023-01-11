@@ -36,10 +36,10 @@ const Modal = () => {
 
 						</div>
 						<div className="form-control">
-							<input type="text" name="phone" placeholder='Your phone number' className='input input-bordered input-primary w-full' required />
+							<input type="tel" name="phone" placeholder='Your phone number' className='input input-bordered input-primary w-full' pattern="[0-9]{14}" required />
 						</div>
 						<div className="modal-action">
-							<label htmlFor="explore" className="btn text-black font-bold bg-[#b8b7b7] border-none  hover:bg-[#a5a2a2] duration-500">Close</label>
+							<label htmlFor="explore" className="btn text-black font-bold bg-[#b8b7b7] border-none  hover:bg-[#a5a2a2] duration-500" onClick={ () => setOpen( !open ) }>Close</label>
 							<input type="submit" value="Subscribe" className='btn text-white font-bold bg-[#0A1806] border-none  hover:bg-[#13300a] duration-500' />
 						</div>
 					</form>

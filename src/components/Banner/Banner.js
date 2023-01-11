@@ -16,7 +16,7 @@ const Banner = () => {
 						<p className='text-white py-4'>
 							{ banner?.description }
 						</p>
-						<label htmlFor="explore" className='btn bg-[#183d0d] border-none px-14 mt-4 text-white hover:bg-[#14330c] duration-500 font-bold cursor-pointer' onClick={ () => setOpen( !open ) } >Explore</label>
+						<label htmlFor="explore" className='btn bg-[#183d0d] border-none px-14 mt-4 text-white hover:bg-[#14330c] duration-500 font-bold cursor-pointer' onClick={ () => setOpen( !open ) } >Subscribe</label>
 					</div>
 				</div>
 				<div className="banner-right lg:self-end lg:py-16 py-8">

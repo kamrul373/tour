@@ -4,7 +4,7 @@ import Loading from '../components/Loading/Loading';
 import { HomeContentContext } from '../App';
 
 const SocialMedia = () => {
-	const { social } = useContext( HomeContentContext )
+	const { social, setSocial } = useContext( HomeContentContext )
 	const [loading, setLoading] = useState( false )
 	// getting current social media
 
@@ -28,8 +28,9 @@ const SocialMedia = () => {
 			body: JSON.stringify( socialMediaLinks )
 		} ).then( res => res.json() )
 			.then( data => {
-				console.log( data )
+				setSocial( socialMediaLinks )
 				toast.success( "Updated Successfully" )
+				setLoading( false )
 			} )
 			.catch( error => console.log( error ) )
 	}
