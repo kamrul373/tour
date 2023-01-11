@@ -26,6 +26,7 @@ const DashboardLayout = () => {
 						{/* <!-- Sidebar content here --> */ }
 						<li><Link to="/dashboard/banner">Add Banner</Link></li>
 						<li><Link to="/dashboard/social">Social Media</Link></li>
+						<li><Link to="/dashboard/subscribers">Subscribers</Link></li>
 					</ul>
 
 				</div>

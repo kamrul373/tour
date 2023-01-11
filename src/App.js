@@ -12,6 +12,7 @@ function App () {
 	const [banner, setBanner] = useState( [] );
 	const [social, setSocial] = useState( [] );
 	const [loading, setLoading] = useState( true )
+	const [open, setOpen] = useState( false );
 	// getting active banner
 	useEffect( () => {
 		setLoading( true )
@@ -33,7 +34,9 @@ function App () {
 	}, [] )
 	const content = {
 		banner,
-		social
+		social,
+		open,
+		setOpen
 	}
 	if ( loading ) {
 		return <Loading></Loading>

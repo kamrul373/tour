@@ -4,7 +4,7 @@ import "./banner.css";
 import Slider from '../Slider/Slider';
 import { HomeContentContext } from '../../App';
 const Banner = () => {
-	const { banner } = useContext( HomeContentContext )
+	const { banner, setOpen, open } = useContext( HomeContentContext )
 	return (
 		<div className='banner overflow-hidden' style={ { backgroundImage: `url(${ bg })` } }>
 			<div className="grid lg:grid-cols-2 grid-cols-1 gap-4 justify-center items-center lg:px-20 px-8 lg:min-h-screen">
@@ -16,7 +16,7 @@ const Banner = () => {
 						<p className='text-white py-4'>
 							{ banner?.description }
 						</p>
-						<button className='btn bg-[#183d0d] border-none px-14 mt-4 text-white hover:bg-[#14330c] duration-500 font-bold cursor-pointer'>Explore</button>
+						<label htmlFor="explore" className='btn bg-[#183d0d] border-none px-14 mt-4 text-white hover:bg-[#14330c] duration-500 font-bold cursor-pointer' onClick={ () => setOpen( !open ) } >Explore</label>
 					</div>
 				</div>
 				<div className="banner-right lg:self-end lg:py-16 py-8">

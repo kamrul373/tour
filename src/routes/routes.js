@@ -7,6 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/Login";
 import Banner from "../pages/Banner";
 import SocialMedia from "../pages/SocialMedia";
+import Subscriber from "../pages/Subscriber";
 
 export const router = createBrowserRouter( [
 	{
@@ -36,8 +37,12 @@ export const router = createBrowserRouter( [
 				element: <Banner></Banner>
 			},
 			{
-				path: "social",
+				path: "/dashboard/social",
 				element: <SocialMedia></SocialMedia>
+			},
+			{
+				path: "/dashboard/subscribers",
+				element: <Subscriber></Subscriber>
 			}
 		]
 	}
