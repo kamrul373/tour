@@ -4,6 +4,7 @@
 	background-position: center;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+
 }
 
 .banner::before {
@@ -19,4 +20,10 @@
 	opacity: 0.5;
 	clear: both;
 	z-index: -1;
+}
+
+@media all and (max-width:768px) {
+	.banner {
+		padding: 120px 0;
+	}
 }

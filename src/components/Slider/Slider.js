@@ -32,10 +32,10 @@ const Slider = () => {
 				className="mySwiper"
 			>
 				<SwiperSlide>
-					<div className="min-h-[200px] text-white px-3" style={ { backgroundImage: `url(${ slide1 })` } }>
+					<div className="min-h-[200px] text-white px-3 bg-cover bg-no-repeat border-transparent rounded-md " style={ { backgroundImage: `url(${ slide1 })` } }>
 						<div className="flex flex-col justify-end h-[200px]">
 							<div className="text-left py-3">
-								<p className="font-bold">Mirissa</p>
+								<p className="font-bold lg:text-xl">Mirissa</p>
 								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 							</div>
 						</div>
