@@ -4,8 +4,8 @@ import { toast } from 'react-hot-toast';
 const Banner = () => {
 	const [bgimage, setBgimage] = useState( "" )
 	const [loading, setLoading] = useState( false )
-	const slider = [];
-	const handleBanner = ( e ) => {
+	const [slider, setSlider] = useState( [] );
+	const handleBanner = async ( e ) => {
 		e.preventDefault();
 		setLoading( true )
 		const title = e.target.title.value;
@@ -20,14 +20,12 @@ const Banner = () => {
 		fetch( url, {
 			method: "POST",
 			body: formData
-		} )
-			.then( res => res.json() )
+		} ).then( res => res.json() )
 			.then( data => setBgimage( data.data.url ) )
 
 
 		// storing slider image url 
 		const files = e.target.slider.files
-
 
 		for ( let i = 0; i <= files.length; i++ ) {
 			formData.append( "image", files[i] );
@@ -40,14 +38,15 @@ const Banner = () => {
 				.then( res => res.json() )
 				.then( data => slider.push( data.data.url ) )
 		}
-		setLoading( false )
+
 		const bannerData = {
 			title: title,
 			description: description,
 			bgimg: bgimage,
 			sldierImages: slider,
+			status: true
 		}
-		console.log( process.env.REACT_APP_HOST )
+
 		fetch( `${ process.env.REACT_APP_HOST }/updatebanner`, {
 			method: "POST",
 			headers: {
@@ -59,6 +58,7 @@ const Banner = () => {
 				toast.success( "Banner updated successfull" )
 				console.log( data )
 				e.target.reset()
+				setLoading( false )
 			} )
 	}
 
@@ -73,21 +73,21 @@ const Banner = () => {
 			<form className='lg:pr-20' onSubmit={ handleBanner }>
 				<div className="form-control mt-4">
 					<label htmlFor="title">Banner Title</label>
-					<input type="text" placeholder="Title" className="input input-bordered input-primary mt-4 w-full " id="title" name="title" />
+					<input type="text" placeholder="Title" className="input input-bordered input-primary mt-4 w-full " id="title" name="title" required />
 				</div>
 				<div className="form-control mt-4">
 					<label htmlFor="description">Description</label>
 
-					<textarea className="textarea textarea-primary mt-4 w-full" placeholder="Description" id="description" name="description" rows="4"></textarea>
+					<textarea className="textarea textarea-primary mt-4 w-full" placeholder="Description" id="description" name="description" rows="4" required></textarea>
 				</div>
 				<div className="form-control mt-4">
 					<label htmlFor="bgimage">Background Image</label>
 
-					<input type="file" className="file-input  w-full max-w-xs mt-4" id='bgimage' name='bgimage' />
+					<input type="file" className="file-input  w-full max-w-xs mt-4" id='bgimage' name='bgimage' required />
 				</div>
 				<div className="form-control mt-4">
 					<label htmlFor="slider">Slider Image  <span className='font-semibold ml-2'>(You can choose multiple image files by pressing crtl + seelect image)</span></label>
-					<input type="file" className="file-input  w-full max-w-xs mt-4" id='slider' name='slider' accept="image/*" multiple />
+					<input type="file" className="file-input  w-full max-w-xs mt-4" id='slider' name='slider' accept="image/*" multiple required />
 				</div>
 				<div className="form-control mt-4">
 					<input type="submit" value="Add Banner" className='btn bg-green-700 text-white hover:bg-green-900 duration-500 btn-wide' />
