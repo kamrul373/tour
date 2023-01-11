@@ -12,7 +12,7 @@ const Banner = () => {
 							Welcome to Srilanka
 						</h2>
 						<p className='text-white py-4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum ab dignissimos, explicabo eveniet harum iusto quam, sequi ipsa ut tenetur expedita assumenda nobis placeat enim facere qui voluptatibus, a neque.</p>
-						<button className='btn bg-accent border-none px-14 mt-4 text-white bg-opacity-75 hover:bg-accent duration-500 font-bold'>Explore</button>
+						<button className='btn bg-[#183d0d] border-none px-14 mt-4 text-white hover:bg-[#14330c] duration-500 font-bold cursor-pointer'>Explore</button>
 					</div>
 				</div>
 				<div className="banner-right lg:self-end lg:py-16 py-8">
