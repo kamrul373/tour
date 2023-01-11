@@ -5,6 +5,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Login from "../pages/Login";
+import Banner from "../pages/Banner";
 
 export const router = createBrowserRouter( [
 	{
@@ -28,6 +29,10 @@ export const router = createBrowserRouter( [
 			{
 				path: "/dashboard",
 				element: <Dashboard></Dashboard>
+			},
+			{
+				path: "/dashboard/banner",
+				element: <Banner></Banner>
 			}
 		]
 	}
