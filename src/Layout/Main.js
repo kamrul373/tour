@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import Nav from '../components/Shared/Nav/Nav';
+import Footer from '../components/Footer/Footer';
 
 const Main = () => {
 	return (
@@ -24,6 +25,7 @@ const Main = () => {
 						</div>
 					</div>
 					<Outlet></Outlet>
+					<Footer></Footer>
 				</div>
 				<div className="drawer-side">
 					<label htmlFor="my-drawer-3" className="drawer-overlay"></label>

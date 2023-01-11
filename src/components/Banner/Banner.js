@@ -11,8 +11,8 @@ const Banner = () => {
 						<h2 className='lg:text-7xl text-3xl text-white font-bold'>
 							Welcome to Srilanka
 						</h2>
-						<p className='text-white'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum ab dignissimos, explicabo eveniet harum iusto quam, sequi ipsa ut tenetur expedita assumenda nobis placeat enim facere qui voluptatibus, a neque.</p>
-						<button className='btn bg-accent border-none bg-opacity-75 px-14 mt-4 text-white'>Explore</button>
+						<p className='text-white py-4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum ab dignissimos, explicabo eveniet harum iusto quam, sequi ipsa ut tenetur expedita assumenda nobis placeat enim facere qui voluptatibus, a neque.</p>
+						<button className='btn bg-accent border-none px-14 mt-4 text-white bg-opacity-75 hover:bg-accent duration-500 font-bold'>Explore</button>
 					</div>
 				</div>
 				<div className="banner-right lg:self-end lg:py-16 py-8">

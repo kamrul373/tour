@@ -9,6 +9,9 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay, Navigation } from "swiper";
 import "./explore..css"
 import slide1 from "../../assets/explore4.jpg"
+import slide2 from "../../assets/explore3.jpg"
+import slide3 from "../../assets/explore2.jpg"
+import slide4 from "../../assets/explore6.jpg"
 
 const ExploreSlider = () => {
 	return (
@@ -29,6 +32,36 @@ const ExploreSlider = () => {
 			>
 				<SwiperSlide>
 					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide1 })` } }>
+						<div className="flex flex-col justify-end h-[350px] ">
+							<div className="text-left py-3">
+								<p className="font-bold lg:text-xl">Mirissa</p>
+								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							</div>
+						</div>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide>
+					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide2 })` } }>
+						<div className="flex flex-col justify-end h-[350px] ">
+							<div className="text-left py-3">
+								<p className="font-bold lg:text-xl">Mirissa</p>
+								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							</div>
+						</div>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide>
+					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide3 })` } }>
+						<div className="flex flex-col justify-end h-[350px] ">
+							<div className="text-left py-3">
+								<p className="font-bold lg:text-xl">Mirissa</p>
+								<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							</div>
+						</div>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide>
+					<div className="min-h-full bg-no-repeat bg-cover bg-center rounded-lg text-white px-3" style={ { backgroundImage: `url(${ slide4 })` } }>
 						<div className="flex flex-col justify-end h-[350px] ">
 							<div className="text-left py-3">
 								<p className="font-bold lg:text-xl">Mirissa</p>
