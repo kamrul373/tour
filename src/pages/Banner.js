@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Loading from '../components/Loading/Loading';
+import { toast } from 'react-hot-toast';
 const Banner = () => {
 	const [bgimage, setBgimage] = useState( "" )
 	const [loading, setLoading] = useState( false )
@@ -40,7 +41,25 @@ const Banner = () => {
 				.then( data => slider.push( data.data.url ) )
 		}
 		setLoading( false )
-		console.log( bgimage, title, description, slider )
+		const bannerData = {
+			title: title,
+			description: description,
+			bgimg: bgimage,
+			sldierImages: slider,
+		}
+		console.log( process.env.REACT_APP_HOST )
+		fetch( `${ process.env.REACT_APP_HOST }/updatebanner`, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json"
+			},
+			body: JSON.stringify( bannerData )
+		} ).then( res => res.json() )
+			.then( data => {
+				toast.success( "Banner updated successfull" )
+				console.log( data )
+				e.target.reset()
+			} )
 	}
 
 	if ( loading ) {
