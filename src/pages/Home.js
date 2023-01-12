@@ -3,9 +3,11 @@ import Banner from '../components/Banner/Banner';
 import Explore from '../components/Explore/Explore';
 import Modal from '../components/Modal/Modal';
 import { HomeContentContext } from '../App';
+import { pageTitle } from '../utility/pageTitle';
 
 const Home = () => {
 	const { open } = useContext( HomeContentContext )
+	pageTitle( "Home" )
 	return (
 		<div>
 			<Banner></Banner>

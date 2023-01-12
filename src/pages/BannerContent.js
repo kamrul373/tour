@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../components/Loading/Loading';
+import { pageTitle } from '../utility/pageTitle';
 
 const BannerContent = () => {
 	const [loading, setLoading] = useState( false )
 	const [content, setContent] = useState( [] );
+	pageTitle( "Banner Content" )
 	useEffect( () => {
 		setLoading( true )
 		fetch( `${ process.env.REACT_APP_HOST }/banner` )

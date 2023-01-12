@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
+import { pageTitle } from '../utility/pageTitle';
 
 const Subscriber = () => {
 	const [subscribers, setSubsriber] = useState( [] );
 	const [loading, setLoading] = useState( false )
+	pageTitle( "Subscriber" )
 	useEffect( () => {
 		setLoading( true )
 		fetch( `${ process.env.REACT_APP_HOST }/subscriber` )

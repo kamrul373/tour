@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../components/Loading/Loading';
 import { HomeContentContext } from '../App';
+import { pageTitle } from '../utility/pageTitle';
 
 const SiteConfig = () => {
 	const { config, setConfig } = useContext( HomeContentContext )
 	const [loading, setLoading] = useState( false )
+	pageTitle( "Settings" )
 	useEffect( () => {
 		setLoading( true )
 		fetch( `${ process.env.REACT_APP_HOST }/config` )
@@ -14,7 +16,7 @@ const SiteConfig = () => {
 				setConfig( data )
 				setLoading( false )
 			} )
-	}, [] )
+	}, [setConfig] )
 	const handleSetting = e => {
 		e.preventDefault();
 		const form = e.target;

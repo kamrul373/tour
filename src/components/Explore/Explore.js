@@ -22,10 +22,10 @@ const Explore = () => {
 	}
 	return (
 		<div className='grid lg:grid-cols-5 grid-cols-1 lg:gap-16 gap-8 lg:px-20 px-8 lg:py-16 py-8 overflow-hidden'>
-			<div className="left-side col-span-3">
+			<div className="left-side lg:col-span-3">
 				<ExploreSlider></ExploreSlider>
 			</div>
-			<div className="right-side col-span-2">
+			<div className="right-side lg:col-span-2">
 				<div className="content-area ">
 					<h2 className='lg:text-7xl text-3xl text-[#0A1806] font-bold'>
 						{ content.title }

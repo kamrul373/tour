@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from 'react-hot-toast';
+import { pageTitle } from '../utility/pageTitle';
 
 const BannerSlides = () => {
 	const [loading, setLoading] = useState( false )
 	const [sliders, setSliders] = useState( [] );
+	pageTitle( "Banner Slides" )
 	useEffect( () => {
 		setLoading( true )
 		fetch( `${ process.env.REACT_APP_HOST }/bannerslide` )

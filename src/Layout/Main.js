@@ -4,9 +4,16 @@ import { FaSearch } from "react-icons/fa";
 import Nav from '../components/Shared/Nav/Nav';
 import Footer from '../components/Footer/Footer';
 import { HomeContentContext } from '../App';
-
+import { AuthContext } from '../context/AuthProvider';
+import { toast } from 'react-hot-toast';
+import { FaFacebookF, FaTwitter, FaPinterestP, FaFoursquare } from 'react-icons/fa';
 const Main = () => {
 	const { config } = useContext( HomeContentContext )
+	const { user, logout } = useContext( AuthContext )
+	const { social } = useContext( HomeContentContext )
+	const handleLogout = () => [
+		logout().then( () => { toast.success( "Successfully Logout" ) } ).catch( error => console.log( error ) )
+	]
 	return (
 		<div>
 			<div className="drawer">
@@ -37,13 +44,50 @@ const Main = () => {
 						<li><Link to="/">Discover</Link></li>
 						<li><Link to="/">History</Link></li>
 						<li><Link to="/">Events</Link></li>
-						<li><Link to="/">Blogs</Link></li>
-						<li><Link to="/">Interests</Link></li>
-						<li>
-							<span>Search <FaSearch className='text-xl font-semibold text-black'></FaSearch></span>
+						{
+							user?.uid && <li><Link to="/dashboard">Dashboard</Link></li>
+						}
+						<div className='flex my-2'>
+							{
+								social?.facebook &&
+								<li >
+									<Link to={ social.facebook }>
+										<FaFacebookF className='text-md'></FaFacebookF>
+									</Link>
+								</li>
+							}
 
-						</li>
+							{
+								social?.pinterest &&
+								<li>
+									<Link to={ social.pinterest }>
+										<FaPinterestP className='text-md'></FaPinterestP>
+									</Link>
+								</li>
+							}
+							{
+								social?.foursquare && <li>
+									<Link to={ social.foursquare }>
+										<FaFoursquare className='text-md'></FaFoursquare>
+									</Link>
+								</li>
+							}
 
+							{
+								social?.twitter &&
+								<li>
+									<Link to={ social.twitter }>
+										<FaTwitter className='text-md'></FaTwitter>
+									</Link>
+								</li>
+							}
+						</div>
+						{
+							!user?.uid && <li><Link to="/login" className='btn bg-[#183d0d] text-white bg-opacity-75 hover:bg-opacity-100 hover:bg-[#14330c] duration-500 border-none rounded-lg font-bold cursor-pointer'>Login</Link></li>
+						}
+						{
+							user?.uid && <li><button onClick={ handleLogout } className='btn bg-[#183d0d] text-white bg-opacity-75 hover:bg-opacity-100 hover:bg-[#14330c] duration-500 border-none rounded-lg font-bold cursor-pointer'>Logout</button></li>
+						}
 					</ul>
 
 				</div>

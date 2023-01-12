@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -27,6 +28,21 @@ const Slider = () => {
 				pagination={ true }
 				mousewheel={ true }
 				keyboard={ true }
+				breakpoints={ {
+					300: {
+						slidesPerView: 1,
+						spaceBetween: 40,
+					},
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 40,
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 30,
+					}
+
+				} }
 				autoplay={ {
 					delay: 2000,
 					disableOnInteraction: false,
@@ -36,7 +52,7 @@ const Slider = () => {
 			>
 				{
 					bannerslider.map( ( slide, idx ) => <SwiperSlide key={ idx }>
-						<div className="min-h-[200px] text-white px-3 bg-cover bg-no-repeat border-transparent rounded-md " style={ { backgroundImage: `url(${ slide?.url })` } }>
+						<div className="lg:min-h-[200px] lg:w-[165px] w-full h-full  text-white px-3 bg-cover bg-no-repeat border-transparent rounded-md " style={ { backgroundImage: `url(${ slide?.url })` } }>
 							<div className="flex flex-col justify-end h-[200px]">
 								<div className="text-left py-3">
 									<p className="font-bold lg:text-xl">{ slide?.title }</p>

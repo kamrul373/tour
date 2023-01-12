@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import { pageTitle } from '../utility/pageTitle';
 const Login = () => {
+	pageTitle( "Login" )
 	const { login } = useContext( AuthContext )
 	const location = useLocation();
 	const navigate = useNavigate()

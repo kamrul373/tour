@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import { toast } from 'react-hot-toast';
+import { pageTitle } from '../utility/pageTitle';
 
 const ExploreContent = () => {
 	const [loading, setLoading] = useState( false )
 	const [content, setContent] = useState( [] );
+	pageTitle( "Explore Content" )
 	useEffect( () => {
 		setLoading( true )
 		fetch( `${ process.env.REACT_APP_HOST }/explorecontent` )

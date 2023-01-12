@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
+import { pageTitle } from '../utility/pageTitle';
 
 const AddExploreSlide = () => {
 	const [loading, setLoading] = useState( false )
 	const navigate = useNavigate()
+	pageTitle( "Add Explore Slide" )
 	const handleAddSlide = e => {
 		e.preventDefault()
 		setLoading( true )

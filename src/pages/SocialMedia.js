@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../components/Loading/Loading';
 import { HomeContentContext } from '../App';
+import { pageTitle } from '../utility/pageTitle';
 
 const SocialMedia = () => {
 	const { social, setSocial } = useContext( HomeContentContext )
 	const [loading, setLoading] = useState( false )
+	pageTitle( "Social Media" )
 	// getting current social media
 
 	// event handler of social media update event

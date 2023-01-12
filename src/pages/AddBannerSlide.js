@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Loading from '../components/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { pageTitle } from '../utility/pageTitle';
 
 const AddBannerSlide = () => {
+	pageTitle( "Add Banner slide" )
 	const [loading, setLoading] = useState( false )
 	const navigate = useNavigate()
 	const handleAddSlide = e => {

@@ -42,6 +42,21 @@ const ExploreSlider = () => {
 					delay: 6000,
 					disableOnInteraction: false,
 				} }
+				breakpoints={ {
+					300: {
+						slidesPerView: 1,
+						spaceBetween: 40,
+					},
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 40,
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 30,
+					}
+
+				} }
 				modules={ [Pagination, Navigation, Autoplay] }
 				className="mySwiper"
 			>
