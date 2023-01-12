@@ -11,6 +11,9 @@ import Subscriber from "../pages/Subscriber";
 import AddExploreSlide from "../pages/AddExploreSlide";
 import ExploreSlides from "../pages/ExploreSlides";
 import ExploreContent from "../pages/ExploreContent";
+import BannerContent from "../pages/BannerContent";
+import AddBannerSlide from "../pages/AddBannerSlide";
+import BannerSlides from "../pages/BannerSlides";
 
 export const router = createBrowserRouter( [
 	{
@@ -58,6 +61,18 @@ export const router = createBrowserRouter( [
 			{
 				path: "/dashboard/updateexplorecntent",
 				element: <ExploreContent></ExploreContent>
+			},
+			{
+				path: "/dashboard/bannercontnet",
+				element: <BannerContent></BannerContent>
+			},
+			{
+				path: "/dashboard/addbannerslide",
+				element: <AddBannerSlide></AddBannerSlide>
+			},
+			{
+				path: "/dashboard/bannerslides",
+				element: <BannerSlides></BannerSlides>
 			}
 		]
 	}

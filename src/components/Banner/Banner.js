@@ -6,7 +6,7 @@ import { HomeContentContext } from '../../App';
 const Banner = () => {
 	const { banner, setOpen, open } = useContext( HomeContentContext )
 	return (
-		<div className='banner overflow-hidden' style={ { backgroundImage: `url(${ bg })` } }>
+		<div className='banner overflow-hidden' style={ { backgroundImage: `url(${ banner.bgimage })` } }>
 			<div className="grid lg:grid-cols-2 grid-cols-1 gap-4 justify-center items-center lg:px-20 px-8 lg:min-h-screen">
 				<div className="banner-left ">
 					<div className="content-area">

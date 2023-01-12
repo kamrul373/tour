@@ -39,15 +39,15 @@ const ExploreContent = () => {
 	}
 	return (
 		<div>
-			<h2 className='text-2xl font-semibold'>Explore Content</h2>
+			<h2 className='text-2xl font-semibold'>Banner Content</h2>
 			<div>
 				<form className='lg:pr-20' onSubmit={ handleExplore }>
 					<div className="form-control mt-4">
-						<label htmlFor="title">Slide Title</label>
+						<label htmlFor="title">Title</label>
 						<input type="text" placeholder="Title" className="input input-bordered input-primary mt-4 w-full " id="title" name="title" defaultValue={ content?.title } />
 					</div>
 					<div className="form-control mt-4">
-						<label htmlFor="description">Slide Description</label>
+						<label htmlFor="description">Description</label>
 
 						<textarea className="textarea textarea-primary mt-4 w-full" placeholder="Description" id="description" name="description" rows="4" defaultValue={ content?.description }></textarea>
 					</div>

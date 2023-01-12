@@ -15,8 +15,8 @@ import slide4 from "../../assets/slide4.jpg"
 import slide5 from "../../assets/slide5.jpg"
 import { HomeContentContext } from "../../App";
 const Slider = () => {
-	const { banner } = useContext( HomeContentContext )
-	const sliders = banner?.sldierImages
+	const { bannerslider } = useContext( HomeContentContext )
+	//const sliders = banner?.sldierImages
 	return (
 		<div className="overflow-hidden">
 			<Swiper
@@ -35,12 +35,12 @@ const Slider = () => {
 				className="mySwiper"
 			>
 				{
-					sliders.map( ( slider, idx ) => <SwiperSlide key={ idx }>
-						<div className="min-h-[200px] text-white px-3 bg-cover bg-no-repeat border-transparent rounded-md " style={ { backgroundImage: `url(${ slider })` } }>
+					bannerslider.map( ( slide, idx ) => <SwiperSlide key={ idx }>
+						<div className="min-h-[200px] text-white px-3 bg-cover bg-no-repeat border-transparent rounded-md " style={ { backgroundImage: `url(${ slide?.url })` } }>
 							<div className="flex flex-col justify-end h-[200px]">
 								<div className="text-left py-3">
-									<p className="font-bold lg:text-xl">Mirissa</p>
-									<p className="text-[8px] text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+									<p className="font-bold lg:text-xl">{ slide?.title }</p>
+									<p className="text-[8px] text-start">{ slide?.description }</p>
 								</div>
 							</div>
 						</div>
