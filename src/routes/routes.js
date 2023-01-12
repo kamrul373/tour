@@ -14,6 +14,7 @@ import ExploreContent from "../pages/ExploreContent";
 import BannerContent from "../pages/BannerContent";
 import AddBannerSlide from "../pages/AddBannerSlide";
 import BannerSlides from "../pages/BannerSlides";
+import SiteConfig from "../pages/SiteConfig";
 
 export const router = createBrowserRouter( [
 	{
@@ -73,6 +74,10 @@ export const router = createBrowserRouter( [
 			{
 				path: "/dashboard/bannerslides",
 				element: <BannerSlides></BannerSlides>
+			},
+			{
+				path: "/dashboard/config",
+				element: <SiteConfig></SiteConfig>
 			}
 		]
 	}

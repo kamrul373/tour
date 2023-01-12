@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { HomeContentContext } from '../../App';
 
 const Footer = () => {
-	const { social } = useContext( HomeContentContext )
+	const { social, config } = useContext( HomeContentContext )
 	return (
 		<div>
 			<footer className="footer footer-center p-10 bg-[#0A1806]  text-white">
@@ -40,7 +40,9 @@ const Footer = () => {
 						}
 					</div>
 					<div>
-						<p className='py-2'>Copyright © 2023 - All right reserved</p>
+						<p className='py-2'>
+							{ config.copyright ? config.copyright : "Copyright © 2023 - All right reserved" }
+						</p>
 					</div>
 				</div>
 			</footer>

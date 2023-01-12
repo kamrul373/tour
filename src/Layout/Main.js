@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import Nav from '../components/Shared/Nav/Nav';
 import Footer from '../components/Footer/Footer';
+import { HomeContentContext } from '../App';
 
 const Main = () => {
+	const { config } = useContext( HomeContentContext )
 	return (
 		<div>
 			<div className="drawer">
@@ -18,7 +20,7 @@ const Main = () => {
 							</label>
 						</div>
 						<div className="flex-1 px-2 mx-2 font-bold ">
-							<Link to="/">Agumentik</Link>
+							<Link to="/">{ config.title ? config.title : "Agumentik" }</Link>
 						</div>
 						<div className="flex-none hidden lg:block \ ">
 							<Nav></Nav>

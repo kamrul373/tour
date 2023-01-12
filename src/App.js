@@ -14,6 +14,17 @@ function App () {
 	const [loading, setLoading] = useState( true )
 	const [bannerslider, setBannerSlider] = useState( [] );
 	const [open, setOpen] = useState( false );
+	const [config, setConfig] = useState( [] )
+	// site config
+	useEffect( () => {
+		setLoading( true )
+		fetch( `${ process.env.REACT_APP_HOST }/config` )
+			.then( res => res.json() )
+			.then( data => {
+				setConfig( data )
+				setLoading( false )
+			} )
+	}, [] )
 	// getting active banner content
 	useEffect( () => {
 		setLoading( true )
@@ -44,13 +55,16 @@ function App () {
 				setLoading( false )
 			} )
 	}, [] )
+
 	const content = {
 		banner,
 		social,
 		setSocial,
 		open,
 		setOpen,
-		bannerslider
+		bannerslider,
+		config,
+		setConfig
 	}
 	if ( loading ) {
 		return <Loading></Loading>

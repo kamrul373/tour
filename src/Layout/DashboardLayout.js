@@ -33,6 +33,7 @@ const DashboardLayout = () => {
 						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/addexploreslide">Add Explore Slide</Link></li>
 						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/updateexplorecntent">Explore Content</Link></li>
 						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/exploreslides">Exploreslides</Link></li>
+						<li className='hover:bg-[#191f29] cursor-pointer'><Link to="/dashboard/config">Setting</Link></li>
 					</ul>
 
 				</div>
